@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { User } from "../../../types";
 import { loginService } from "../services/loginServices";
 import toast from "react-hot-toast";
+import { useAuth } from "../../../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [loginData, setLoginData] = useState<User>({ email: "", password: "" });
+  const { isAuthenticated, loading, user } = useAuth();
+  const navigate = useNavigate()
 
+
+useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+}, [isAuthenticated])
+  
+  
   const loginServicesHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password } = loginData;
@@ -13,8 +25,21 @@ export default function LoginPage() {
       toast.error("ایمیل یا رمز عبور نمیتواند خالی باشد");
     }
 
-    await loginService(loginData);
+    const loginedUser = await loginService(loginData);
+    if (loginedUser.status == 200) {
+      console.log("loginedUser.data.data12232: ", loginedUser.data.message);
+      toast.success(loginedUser.data.message);
+      navigate("/")
+    }else {
+      console.log(loginedUser.data);
+      toast.success(loginedUser.data.message);
+
+    }
+    console.log("loginedUser", loginedUser);
   };
+
+
+  
   return (
     <main
       dir="rtl"
@@ -214,7 +239,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 className="mr-2 text-sm text-orange-400 transition hover:text-orange-300"
-                onClick={loginServicesHandler}
+                
               >
                 ایجاد حساب
               </button>

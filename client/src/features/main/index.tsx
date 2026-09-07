@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../../services/axios";
+import { getMe } from "../login/auth";
 
 type Service = {
   number: string;
@@ -50,6 +52,10 @@ const problems = [
 function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const user = getMe()
+    console.log('get me user: ', user)
+  }, [])
   return (
     <div
       dir="rtl"

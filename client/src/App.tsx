@@ -21,8 +21,8 @@ const App = () => {
         setMenuOpen={setMenuOpen}
       />
       <Routes>
-        <Route element={<LoginPage />} path="/login" />
         <Route element={<Main scrollToSection={scrollToSection} />} path="/" />
+        <Route element={<LoginPage />} path="/login" />
         <Route element={<NeedForFinancial />} path="/need-help" />
       </Routes>
     </div>

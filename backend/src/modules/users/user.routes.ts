@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, getAllUsers, getMe, getMe, loginUser, logOutUser, profileUser } from "./user.controllers";
+import { createUser, getAllUsers, getMe, loginUser, logOutUser, profileUser } from "./user.controllers";
 import { validate } from "../../middleware/validate";
 import { createUserSchema, loginUserSchema } from "./user.validate.ts";
 import authMiddleware from "../../middleware/auth.middlware.ts";
