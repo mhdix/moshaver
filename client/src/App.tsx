@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./features/main";
 import NeedForFinancial from "./features/needForFinancial/NeedForFinancial";
 import Navbar from "./components/navbar";
-import LoginPage from "./features/login/components/loginPage";
+import LoginPage from "./features/login/components/LoginPage";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 

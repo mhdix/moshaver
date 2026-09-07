@@ -53,9 +53,9 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const user = getMe()
-    console.log('get me user: ', user)
-  }, [])
+    const user = getMe();
+    console.log("get me user: ", user);
+  }, []);
   return (
     <div
       dir="rtl"
@@ -78,7 +78,7 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
               </div>
               <h1 className="m-0 text-[clamp(50px,7vw,92px)] leading-[1.02] font-bold tracking-[-4px] max-[850px]:tracking-[-2px]">
                 عددها را <br /> به
-                <em className="not-italic text-primary">تصمیم</em> تبدیل کنیم.
+                <em className="not-italic text-primary"> تصمیم </em> تبدیل کنیم.
               </h1>
               <p className="my-7 max-w-155 text-[15px] leading-[2.05] text-text-secondary">
                 من جواد دومانلو هستم؛ مشاور مالی و عملیاتی. کمک می‌کنم مدیران،
@@ -200,7 +200,7 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
               02 / خدمات
             </span>
             <h2 className="mt-5 text-[clamp(38px,5vw,66px)] leading-[1.15] tracking-[-2px]">
-              مشاوره برای
+              مشاوره برای{" "}
               <span className="text-primary">
                 دیدن، تحلیل کردن و اقدام کردن.
               </span>

@@ -12,7 +12,5 @@ export const getMe = async (): Promise<User | null> => {
     // if (!response.ok) {
     //     throw new Error("خطا در دریافت اطلاعات کاربر");
     // }
-
-
     return response;
 };

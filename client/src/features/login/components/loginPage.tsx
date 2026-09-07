@@ -4,20 +4,19 @@ import { loginService } from "../services/loginServices";
 import toast from "react-hot-toast";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import BackgroundGlow from "../../../components/backgroundGlow";
 
 export default function LoginPage() {
   const [loginData, setLoginData] = useState<User>({ email: "", password: "" });
   const { isAuthenticated, loading, user } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-
-useEffect(() => {
+  useEffect(() => {
     if (isAuthenticated) {
       navigate("/");
     }
-}, [isAuthenticated])
-  
-  
+  }, [isAuthenticated]);
+
   const loginServicesHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password } = loginData;
@@ -29,26 +28,22 @@ useEffect(() => {
     if (loginedUser.status == 200) {
       console.log("loginedUser.data.data12232: ", loginedUser.data.message);
       toast.success(loginedUser.data.message);
-      navigate("/")
-    }else {
+      navigate("/");
+    } else {
       console.log(loginedUser.data);
       toast.success(loginedUser.data.message);
-
     }
     console.log("loginedUser", loginedUser);
   };
 
-
-  
   return (
     <main
       dir="rtl"
-      className="relative min-h-screen overflow-hidden bg-[#171717] text-white"
+      className="relative min-h-screen overflow-hidden bg-bg text-white"
     >
       {/* Background Glow */}
-      <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-orange-400/10 blur-[140px]" />
-      <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-orange-300/10 blur-[140px]" />
-
+      <BackgroundGlow />
+      
       <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-16 px-6 py-12 lg:grid-cols-2 lg:px-8">
         {/* ================= LEFT / BRAND ================= */}
         <section className="hidden lg:block">
@@ -70,7 +65,7 @@ useEffect(() => {
 
             {/* Eyebrow */}
             <div className="mb-7 flex items-center gap-3 text-xs tracking-[0.2em] text-white/40">
-              <span className="h-px w-10 bg-orange-400" />
+              <span className="h-px w-10 bg-primary" />
               MANAGEMENT PLATFORM
             </div>
 
@@ -131,7 +126,7 @@ useEffect(() => {
 
             {/* Header */}
             <div>
-              <span className="text-xs tracking-[0.2em] text-orange-400">
+              <span className="text-xs tracking-[0.2em] text-primabg-primary">
                 LOGIN / ورود
               </span>
 
@@ -158,7 +153,7 @@ useEffect(() => {
                   type="email"
                   name="email"
                   placeholder="example@email.com"
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-orange-400/60 focus:bg-white/[0.06]"
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-primabg-primary focus:bg-white/[0.06]"
                   onChange={(e) =>
                     setLoginData((prev) => ({
                       ...prev,
@@ -177,7 +172,7 @@ useEffect(() => {
 
                   <button
                     type="button"
-                    className="text-xs text-orange-400 transition hover:text-orange-300"
+                    className="text-xs text-primabg-primary transition hover:text-orange-300"
                   >
                     رمز عبور را فراموش کرده‌اید؟
                   </button>
@@ -185,11 +180,10 @@ useEffect(() => {
 
                 <input
                   name="password"
-
                   id="password"
                   type="password"
                   placeholder="••••••••"
-                  className="w-full rounded-xl border border-white/10 bg-white/4 px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-orange-400/60 focus:bg-white/[0.06]"
+                  className="w-full rounded-xl border border-white/10 bg-white/4 px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-primary/60 focus:bg-white/[0.06]"
                   onChange={(e) =>
                     setLoginData((prev) => ({
                       ...prev,
@@ -203,7 +197,7 @@ useEffect(() => {
               <label className="flex cursor-pointer items-center gap-3 py-1">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-white/20 bg-white/5 accent-orange-400"
+                  className="h-4 w-4 rounded border-white/20 bg-white/5 accent-primary"
                 />
 
                 <span className="text-xs text-white/40">مرا به خاطر بسپار</span>
@@ -212,7 +206,7 @@ useEffect(() => {
               {/* Submit */}
               <button
                 type="submit"
-                className="group flex w-full items-center justify-between rounded-xl bg-orange-400 px-5 py-4 text-sm font-medium text-[#171717] transition hover:bg-orange-300"
+                className="group flex w-full items-center justify-between rounded-xl bg-primary px-5 py-4 text-sm font-medium text-[#171717] transition hover:bg-primary hover:scale-105"
                 onClick={loginServicesHandler}
               >
                 <span>ورود به پنل</span>
@@ -238,8 +232,7 @@ useEffect(() => {
 
               <button
                 type="button"
-                className="mr-2 text-sm text-orange-400 transition hover:text-orange-300"
-                
+                className="mr-2 text-sm text-primary transition hover:text-orange-300"
               >
                 ایجاد حساب
               </button>
