@@ -32,14 +32,19 @@ const Navbar = ({ scrollToSection, menuOpen, setMenuOpen }: Props) => {
           {[
             ["", "صفحه اصلی"],
             ["/need-help", "برانداز مالی"],
-            ["/#services", "خدمات"],
-            ["/#method", "رویکرد من"],
-            ["/#problems", "مسائل کسب‌وکار"],
-            ["/#about", "درباره من"],
+            ["#services", "خدمات"],
+            ["#method", "رویکرد من"],
+            ["#problems", "مسائل کسب‌وکار"],
+            ["#about", "درباره من"],
           ].map(([link, label]) => (
             <>
               {link.startsWith("#") ? (
-                <a href={link}>{label}</a>
+                <Link
+                  className="border-0 bg-transparent text-xs text-text-secondary transition hover:text-primary max-[850px]:p-3"
+                  to={'/'+link}
+                >
+                  {label}
+                </Link>
               ) : (
                 <Link
                   to={link}
