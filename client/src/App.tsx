@@ -4,14 +4,14 @@ import Main from "./features/main";
 import NeedForFinancial from "./features/needForFinancial/NeedForFinancial";
 import Navbar from "./components/navbar";
 import LoginPage from "./features/login/components/LoginPage";
+import NeedForFinancial2 from "./features/needForFinancial/NeedForFinancial2";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-    const scrollToSection = (id: string) => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
-    };
-
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
 
   return (
     <div className="font-vazirmatn">
@@ -24,6 +24,7 @@ const App = () => {
         <Route element={<Main scrollToSection={scrollToSection} />} path="/" />
         <Route element={<LoginPage />} path="/login" />
         <Route element={<NeedForFinancial />} path="/need-help" />
+        <Route element={<NeedForFinancial2 />} path="/need-help-2" />
       </Routes>
     </div>
   );

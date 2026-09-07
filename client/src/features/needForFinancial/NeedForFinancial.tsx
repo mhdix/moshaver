@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { questions } from "./questionList";
+import { questions } from "./staticData/questionList";
 
 const initialState = {
   cashFlow: "",

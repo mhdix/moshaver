@@ -39,3 +39,9 @@
   --color-text-secondary: #a7b9b1;
   --color-text-light: #c5d1cc;
 }
+
+@layer base {
+  p, h1,h2,h3 {
+    @apply text-gray-200
+  }
+}
