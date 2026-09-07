@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src:
+     url('../public/fonts/Vazir-Medium-FD-WOL.woff') format('woff'),
+     url('../public/fonts/Vazir-Medium-FD-WOL.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@theme {
+  /* Fonts */
+  --font-vazirmatn: "Vazirmatn", Tahoma, sans-serif;
+
+  /* Main Backgrounds */
+  --color-bg: #07110f;
+  --color-bg-soft: #0b1916;
+  --color-card: #10251f;
+  --color-navy: #081715;
+
+  /* Brand Colors */
+  --color-primary: #a7f34a;
+  --color-primary-soft: #d5ff9b;
+
+  /* Text Colors */
+  --color-text: #edf5f0;
+  --color-muted: #91a79e;
+
+  /* UI Colors */
+  --color-line: rgba(214, 235, 224, 0.12);
+
+  /* Extra Colors */
+  --color-surface: #091612;
+  --color-contact: #10231d;
+
+  --color-text-secondary: #a7b9b1;
+  --color-text-light: #c5d1cc;
+}

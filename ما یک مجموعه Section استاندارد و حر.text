@@ -1,0 +1,707 @@
+ما یک مجموعه Section استاندارد و حرفه‌ای تعریف می‌کنیم.
+
+مثلاً:
+HeroSection
+ServicesSection
+ProblemsSection
+ProcessSection
+CaseStudiesSection
+TestimonialsSection
+FAQSection
+ArticlesSection
+CTASection
+ContactSection
+و بعد هر Theme ظاهر خودش را به این Sectionها می‌دهد.
+
+-------------------------------------------------------------------------------------
+
+مدل سرویس
+Service
+├── Title
+├── Short Description
+├── Full Description
+├── Problem
+├── Target Audience
+├── Benefits
+├── Deliverables
+├── Process
+├── Related Services
+├── Related Articles
+├── FAQ
+├── CTA
+├── SEO
+└── Status
+چون مثلاً «مدیریت نقدینگی» می‌تواند خودش یک Landing Page کامل باشد.
+
+-------------------------------------------------------------------------------------
+
+سایت‌های حرفه‌ای B2B روی Case Study و اثبات نتیجه تأکید دارند.
+پس Core باید از ابتدا Case Study داشته باشد:
+
+Case Study
+├── Client
+├── Industry
+├── Problem
+├── Situation
+├── Analysis
+├── Solution
+├── Implementation
+├── Result
+├── Metrics
+├── Images
+├── Consultant
+└── Related Services
+مثلاً:
+کاهش هزینه عملیاتی ۱۸٪
+کاهش زمان وصول مطالبات
+اصلاح سیستم گزارش‌دهی مدیریت
+
+-------------------------------------
+
+Testimonials
+صرفاً:
+
+«آقای X بسیار عالی بودند.»
+
+ارزش زیادی ندارد.
+
+بهتر:
+
+نام
+سمت
+شرکت
+صنعت
+متن تجربه
+عکس
+
+و در صورت امکان:
+Problem
+Result
+
+
+
+-------------------------------------------
+
+Process یا روش همکاری
+
+یک چیز بسیار خوب که در بازار ایران هم دیده می‌شود این است:
+
+نیازسنجی
+↓
+تحلیل
+↓
+راهکار
+↓
+اجرا
+↓
+پایش
+
+نمونه‌های ایرانی و بین‌المللی همین مدل را استفاده می‌کنند.
+
+پس در Core باید Entity یا Section قابل مدیریت برای:
+
+Consulting Process
+
+داشته باشیم.
+
+مثلاً:
+
+Step 1 — ارزیابی
+Step 2 — تشخیص
+Step 3 — طراحی راهکار
+Step 4 — اجرا
+Step 5 — پایش
+
+
+00000000000000000000000000000000000000000000
+
+
+
+فرم درخواست مشاوره
+نام *
+موبایل *
+نام شرکت
+سمت
+نوع کسب‌وکار
+حوزه مشکل
+نوع درخواست
+توضیح مشکل
+روش تماس ترجیحی
+
+بک اند: Lead
+
+000000000000000000000000000000000000000
+یعنی Core عملاً یک Lead Management کوچک هم لازم دارد
+
+نه CRM کامل.
+
+ولی حداقل:
+
+Lead
+├── Name
+├── Phone
+├── Email
+├── Company
+├── Position
+├── Need
+├── Source
+├── Status
+├── CreatedAt
+└── Notes
+
+Status:
+
+New
+Contacted
+Meeting
+Proposal
+Won
+Lost
+
+این خیلی مهم است چون سایت فقط نباید «اطلاعات نشان بدهد».
+
+0000000000000000000000000000000000000000000
+
+
+مقالات؛ ولی با هدف SEO و اعتماد
+
+تقریباً همه سایت‌های مورد بررسی Blog/Articles دارند.
+
+اما برای Core باید Article یک Entity جدی باشد:
+
+Article
+├── Title
+├── Slug
+├── Excerpt
+├── Content
+├── Featured Image
+├── Author
+├── Category
+├── Tags
+├── PublishedAt
+├── UpdatedAt
+├── SEO Title
+├── Meta Description
+├── Canonical
+├── Schema
+└── Related Services
+
+و یک نکته مهم:
+
+مقاله باید بتواند به Service متصل شود.
+
+مثلاً:
+
+مقاله:
+چرا شرکت سود دارد ولی نقدینگی ندارد؟
+
+        ↓
+
+Service:
+مدیریت نقدینگی
+
+000000000000000000000000000000000
+
+FAQ
+Core باید FAQ عمومی و اختصاصی داشته باشد:
+
+Global FAQ
+Service FAQ
+Article FAQ
+
+مثلاً:
+
+مشاوره مالی برای چه شرکت‌هایی مناسب است؟
+
+برای شروع مشاوره چه اطلاعاتی لازم است؟
+
+جلسه مشاوره چقدر طول می‌کشد؟
+
+آیا مشاوره آنلاین دارید؟
+
+
+000000000000000000000000000000000
+
+About Consultant
+باید بتوانیم مدیریت کنیم:
+
+Consultant
+├── Name
+├── Professional Title
+├── Short Bio
+├── Full Bio
+├── Profile Image
+├── Experience
+├── Education
+├── Certifications
+├── Expertise
+├── Industries
+├── Achievements
+├── Publications
+├── Social Links
+└── Contact
+
+این قسمت با داده‌های واقعی مشاور پر می‌شود.
+
+00000000000000000000000000000000000000
+
+اعتبار حرفه‌ای
+پس Core باید امکان نمایش این موارد را داشته باشد:
+
+Credentials
+Certificates
+Memberships
+Licenses
+Organizations
+Media
+Publications
+Clients
+Projects
+ولی همه Optional باشند.
+
+0000000000000000000
+
+
+Industry / حوزه فعالیت
+مثلاً:
+
+تولیدی
+پیمانکاری
+بازرگانی
+خدماتی
+فناوری
+استارتاپ
+پخش
+ساختمان
+
+بعد بتوانیم بگوییم:
+
+Services
+    ↓
+Industries
+    ↓
+Articles
+    ↓
+Case Studies
+
+مثلاً:
+
+مشاوره مالی برای شرکت‌های پیمانکاری
+
+این برای SEO هم بسیار مفید است.
+
+000000000000000000000000000000000000
+
+SEO باید داخل Core باشد، نه اینکه بعداً اضافه شود
+SEO
++
+Articles
++
+Service Pages
++
+Case Studies
++
+Personal Brand
+محور است.
+
+SEO Engine
+
+Core باید برای هر Page این‌ها را داشته باشد:
+
+SEO
+├── Meta Title
+├── Meta Description
+├── Canonical
+├── Robots
+├── Open Graph
+├── Twitter/X Card
+├── Schema
+└── Sitemap settings
+
+و Schemaهای مختلف:
+
+Person
+Organization
+Article
+Breadcrumb
+LocalBusiness
+ProfilePage
+
+Google برای Organization و LocalBusiness به‌طور رسمی Structured Data را مستند کرده است.
+
+
+000000000000000000000000
+
+
+Performance باید جزء خود Core باشد
+Google برای Core Web Vitals اهداف مشخصی پیشنهاد می‌کند:
+
+LCP < 2.5s
+INP < 200ms
+CLS < 0.1
+
+بنابراین Core نباید هر تصویر 8MB را آزادانه ببلعد.
+
+Media Manager باید حداقل:
+
+Image optimization
+WebP/AVIF
+Responsive images
+Lazy loading
+Alt text
+Dimensions
+
+را در نظر بگیرد.
+
+
+
+00000000000000000000000000
+
+
+
+Theme System
+بهتر است:
+
+Theme
+├── Colors
+├── Typography
+├── Spacing
+├── Border Radius
+├── Shadows
+├── Buttons
+├── Cards
+├── Header
+├── Footer
+├── Hero
+├── Sections
+└── Layout
+
+مثلاً:
+
+Primary Color
+Secondary Color
+Accent Color
+Background
+Surface
+Text
+Muted Text
+Border
+
+و Theme بتواند عوض شود بدون اینکه Content تغییر کند.
+
+
+
+0000000000000000000000000000000
+
+
+باید سه چیز کاملاً جدا باشند:
+
+CORE
+   ↓
+THEME
+   ↓
+CONTENT
+
+
+0000000000000000000000000000000
+
+
+
+
+Admin Panel
+
+Admin نباید فقط CRUD باشد.
+
+Dashboard باید مثلاً نشان دهد:
+
+Articles: 24
+Services: 8
+Leads: 17
+New Leads: 4
+Published Pages: 12
+
+و بعد:
+
+Content
+Services
+Articles
+Case Studies
+Testimonials
+Leads
+Media
+Consultant
+Theme
+SEO
+Settings
+Users
+
+
+
+
+000000000000000000000000000000000000000000
+
+
+
+نقش‌ها
+
+از ابتدا:
+
+Super Admin
+Site Admin
+Editor
+Author
+
+حتی اگر در نسخه اول فقط:
+
+Super Admin
+
+فعال نسخه ی اول انجام میشه 
+
+
+000000000000000000000000000000000000000000
+
+
+چندزبانه؟
+
+برای Core:
+
+بله، ولی نه الزاماً در V1.
+
+ساختار باید قابلیت آینده را داشته باشد:
+
+fa
+en
+ar
+
+اما من توصیه نمی‌کنم الان وقت زیادی روی Translation Management بگذاریم.
+
+
+فعلا فقط زبان فارسی ولی در کور باید قابلیت اضافه کردن هم باشه 
+
+
+00000000000000000000000000000000000000000000000
+
+
+
+رزرو جلسه
+Consultation Request
+فعلاً:
+درخواست جلسه بدون کلندر 
+
+
+0000000000000000000000000000000000000
+
+Payment
+
+برای V1:
+
+نه.
+
+چون همه مشاورها الزاماً جلسه پولی آنلاین ندارند.
+
+ولی مدل باید آینده‌پذیر باشد:
+
+Consultation
+├── Free
+├── Paid
+├── Online
+├── In-person
+├── Phone
+└── Video
+
+
+00000000000000000000000000000000000000000
+
+
+چیزی که نباید بسازیم
+
+این قسمت هم خیلی مهم است.
+
+فعلاً نسازیم:
+
+❌ Elementor Clone
+❌ Page Builder کامل
+❌ CRM کامل
+❌ Accounting System
+❌ ERP
+❌ Payment Gateway پیچیده
+❌ Mobile App
+❌ Marketing Automation کامل
+❌ AI Content Generator
+❌ Chat System
+❌ Marketplace
+❌ سیستم مدیریت پروژه کامل
+
+
+0000000000000000000000000000000000000
+
+
+Core V1 که من الان پیشنهاد می‌کنم
+
+اگر تمام تحقیق را فشرده کنیم:
+
+هسته اصلی
+Tenant
+User
+Role
+Consultant
+Theme
+Page
+Section
+Service
+Industry
+Article
+Category
+CaseStudy
+Testimonial
+FAQ
+Media
+Lead
+ConsultationRequest
+SEO
+SiteSettings
+
+این می‌شود هسته واقعی.
+
+
+
+
+00000000000000000000000000000000000000000000
+
+
+معماری Content
+
+من این ساختار را پیشنهاد می‌کنم:
+
+Tenant
+│
+├── Consultant
+│
+├── Theme
+│
+├── SiteSettings
+│
+├── Pages
+│   └── Sections
+│
+├── Services
+│
+├── Industries
+│
+├── Articles
+│   ├── Categories
+│   └── Tags
+│
+├── CaseStudies
+│
+├── Testimonials
+│
+├── FAQs
+│
+├── Media
+│
+├── Leads
+│
+└── ConsultationRequests
+
+
+
+
+00000000000000000000000000000
+
+
+
+یک قابلیت بسیار مهم: ارتباط بین Contentها
+
+این را حتماً در طراحی Database لحاظ کنیم.
+
+مثلاً:
+
+Article
+   ↓
+Service
+   ↓
+Case Study
+   ↓
+Industry
+
+مثلاً:
+
+مقاله:
+
+«چرا فروش بالا الزاماً به معنی سود بالا نیست؟»
+
+مرتبط با:
+
+Service:
+تحلیل سودآوری
+
+Industry:
+تولیدی
+
+Case Study:
+تحلیل سودآوری یک شرکت تولیدی
+
+این باعث می‌شود سایت از مجموعه‌ای از صفحات جداگانه تبدیل شود به یک Knowledge Graph کوچک.
+
+
+
+
+000000000000000000000000000
+
+
+
+ز نظر تجربه انسانی، سایت باید این سؤال را جواب دهد
+
+وقتی مدیر وارد سایت می‌شود، در 5 تا 10 ثانیه اول باید بفهمد:
+
+1. این مشاور کیست؟
+2. برای چه کسانی کار می‌کند؟
+3. چه مشکلی را حل می‌کند؟
+4. چه نتیجه‌ای ایجاد می‌کند؟
+5. چطور می‌توانم با او صحبت کنم؟
+
+اگر این پنج سؤال جواب داده نشود، سایت هرچقدر هم زیبا باشد، ضعیف است.
+
+این با یافته‌های بررسی سایت‌های مشاوره و راهنمای سایت‌های Financial Advisor نیز هم‌جهت است.
+
+
+
+
+0000000000000000000000000000
+
+
+
+
+نسخه نهایی Scope پیشنهادی V1
+قابلیت	V1
+Multi-Tenant پایه	✅
+Consultant	✅
+Services	✅
+Industries	✅
+Pages	✅
+Sections	✅
+Theme	✅
+Articles	✅
+Categories/Tags	✅
+Case Studies	✅
+Testimonials	✅
+FAQ	✅
+Media	✅
+SEO	✅
+Lead	✅
+Consultation Request	✅
+Admin Panel	✅
+Roles	✅ پایه
+Analytics	🟡 ساده
+Calendar	❌
+Payment	❌
+CRM کامل	❌
+Page Builder	❌
+چندزبانه	🟡 معماری آماده
+AI	❌
+
+
+
+
+00000000000000000000000000
