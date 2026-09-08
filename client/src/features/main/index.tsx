@@ -55,7 +55,7 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
 
   useEffect(() => {
     const user = getMe();
-    console.log("get me user: ", user);
+    async () => console.log("get me user: ", await user);
   }, []);
   return (
     <div

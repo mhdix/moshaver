@@ -18,8 +18,6 @@ function FinancialHealth() {
   }, [profit, sales]);
 
 
-
-
   return (
     <section className="border-t border-line py-[100px]">
       <div className="mx-auto w-[min(1160px,calc(100%-48px))]">
