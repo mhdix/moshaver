@@ -62,7 +62,7 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
       dir="rtl"
       className="min-h-screen overflow-hidden bg-bg font-vazirmatn text-text"
     >
-      <FinancialHealth />
+      {/* <FinancialHealth /> */}
       <main>
         {/* ================= HERO ================= */}
         <section

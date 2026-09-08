@@ -4,7 +4,7 @@ import { loginService } from "../services/loginServices";
 import toast from "react-hot-toast";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate } from "react-router-dom";
-import BackgroundGlow from "../../../components/backgroundGlow";
+// import BackgroundGlow from "../../../components/BackgroundGlow.tsx";
 
 export default function LoginPage() {
   const [loginData, setLoginData] = useState<User>({ email: "", password: "" });
@@ -42,7 +42,7 @@ export default function LoginPage() {
       className="relative min-h-screen overflow-hidden bg-bg text-white"
     >
       {/* Background Glow */}
-      <BackgroundGlow />
+      {/* <BackgroundGlow /> */}
       
       <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-16 px-6 py-12 lg:grid-cols-2 lg:px-8">
         {/* ================= LEFT / BRAND ================= */}
