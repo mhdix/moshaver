@@ -71,62 +71,67 @@ const NeedForFinancial = () => {
 
         {/* Questions */}
         <div className="border-t border-line">
-          {questions.map((item, index) => (
-            <article key={item.id} className="border-b border-line py-9.5">
-              <div className="grid grid-cols-[90px_1fr] gap-7.5 max-[520px]:grid-cols-1 max-[520px]:gap-4">
-                {/* Number */}
-                <div className="pt-2 text-[11px] text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+          {questions.map((item, index) => {
+            console.log("question map: ", item);
+            return (
+              <article key={item.id} className="border-b border-line py-9.5">
+                <div className="grid grid-cols-[90px_1fr] gap-7.5 max-[520px]:grid-cols-1 max-[520px]:gap-4">
+                  {/* Number */}
+                  <div className="pt-2 text-[11px] text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
 
-                {/* Content */}
-                <div>
-                  <h2 className="m-0 max-w-187.5 text-[22px] leading-[1.7] text-text max-[520px]:text-[18px]">
-                    {item.question}
-                  </h2>
+                  {/* Content */}
+                  <div>
+                    <h2 className="m-0 max-w-187.5 text-[22px] leading-[1.7] text-text max-[520px]:text-[18px]">
+                      {item.title}
+                    </h2>
 
-                  {/* Options */}
-                  <div className="mt-7 grid grid-cols-3 gap-3 max-[850px]:grid-cols-2 max-[520px]:grid-cols-1">
-                    {item.options.map((option) => {
-                      const isSelected =
-                        needHelpAnswer[item.name as keyof FormState] ===
-                        option.value;
+                    {/* Options */}
+                    <div className="mt-7 grid grid-cols-3 gap-3 max-[850px]:grid-cols-2 max-[520px]:grid-cols-1">
+                      {item.options.map((option) => {
+                        const isSelected =
+                          needHelpAnswer[item.id as keyof FormState] ===
+                          option.value;
+                        console.log("isSelected", isSelected);
+                        ش;
 
-                      return (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() =>
-                            handleAnswer({
-                              field: item.name as keyof FormState,
-                              value: option.value,
-                            })
-                          }
-                          className={`border px-5 py-4 text-right text-md transition ${
-                            isSelected
-                              ? "border-primary bg-primary text-bg"
-                              : "border-line bg-bg-soft text-text-secondary hover:border-primary/60 hover:text-primary"
-                          }`}
-                        >
-                          <span className="flex items-center justify-between gap-4">
-                            {option.label}
+                        return (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() =>
+                              handleAnswer({
+                                field: item.id as keyof FormState,
+                                value: option.value,
+                              })
+                            }
+                            className={`border px-5 py-4 text-right text-md transition ${
+                              isSelected
+                                ? "border-primary bg-primary text-bg"
+                                : "border-line bg-bg-soft text-text-secondary hover:border-primary/60 hover:text-primary"
+                            }`}
+                          >
+                            <span className="flex items-center justify-between gap-4">
+                              {option.label}
 
-                            <span
-                              className={`h-2.5 w-2.5 rounded-full ${
-                                isSelected
-                                  ? "bg-bg"
-                                  : "bg-transparent border border-line"
-                              }`}
-                            />
-                          </span>
-                        </button>
-                      );
-                    })}
+                              <span
+                                className={`h-2.5 w-2.5 rounded-full ${
+                                  isSelected
+                                    ? "bg-bg"
+                                    : "bg-transparent border border-line"
+                                }`}
+                              />
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         {/* Submit */}
