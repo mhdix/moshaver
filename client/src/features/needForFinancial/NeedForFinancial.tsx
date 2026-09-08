@@ -13,15 +13,25 @@ const initialState = {
 type FormState = typeof initialState;
 
 type Action = {
+  type: "SET_ANSWER";
   name: keyof FormState;
   value: string;
 };
 
-const handleFillForm = (state: FormState, { name, value }: Action) => {
-  return {
-    ...state,
-    [name]: value,
-  };
+const handleFillForm = (state: FormState, { name, value, type }: Action) => {
+  switch (type) {
+    case "SET_ANSWER":
+      return {
+        ...state,
+        [name]: value,
+      };
+      break;
+
+    default:
+      return state;
+
+      break;
+  }
 };
 
 const NeedForFinancial = () => {
@@ -35,6 +45,7 @@ const NeedForFinancial = () => {
     value: string;
   }) => {
     dispatch({
+      type: "SET_ANSWER",
       name: field,
       value,
     });
@@ -94,8 +105,6 @@ const NeedForFinancial = () => {
                           needHelpAnswer[item.id as keyof FormState] ===
                           option.value;
                         console.log("isSelected", isSelected);
-                        ش;
-
                         return (
                           <button
                             key={option.value}

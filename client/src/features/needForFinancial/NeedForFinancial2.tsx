@@ -1,5 +1,6 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { questions } from "./staticData/questionList.ts";
+import FinancialResultModal from "./components/Modal.tsx";
 
 type AssessmentState = {
   currentQuestionIndex: number;
@@ -19,6 +20,12 @@ type AssessmentAction =
     }
   | {
       type: "PREVIOUS_QUESTION";
+    }
+  | {
+      type: "SHOW_RESULT";
+    }
+  | {
+      type: "RESET_ANSWER";
     };
 
 const initialState: AssessmentState = {
@@ -41,6 +48,8 @@ const assessmentReducer = (
       };
 
     case "NEXT_QUESTION":
+      if (state.currentQuestionIndex == 5) {
+      }
       return {
         ...state,
         currentQuestionIndex: Math.min(
@@ -55,6 +64,9 @@ const assessmentReducer = (
         currentQuestionIndex: Math.max(state.currentQuestionIndex - 1, 0),
       };
 
+    case "RESET_ANSWER":
+      return initialState
+      
     default:
       return state;
   }
@@ -62,6 +74,16 @@ const assessmentReducer = (
 
 const NeedForFinancial2 = () => {
   const [state, dispatch] = useReducer(assessmentReducer, initialState);
+  const [isResultOpen, setIsResultOpen] = useState(false);
+
+  useEffect(() => {
+    if (state.currentQuestionIndex == 5) {
+      console.log(state.currentQuestionIndex);
+      setIsResultOpen(true)
+    } else {
+      setIsResultOpen(false);
+    }
+  }, [state]);
 
   const currentQuestion = questions[state.currentQuestionIndex];
 
@@ -72,8 +94,16 @@ const NeedForFinancial2 = () => {
   return (
     <section
       id="assessment"
-      className="border-t border-line bg-surface py-[120px] max-[850px]:py-[80px]"
+      className="border-t border-line bg-surface py-30 max-[850px]:py-20"
     >
+      <FinancialResultModal
+        isOpen={isResultOpen}
+        needsFinancialManager={true}
+        onClose={() => setIsResultOpen(false)}
+        onRestart={() => {
+          dispatch({type: 'RESET_ANSWER'})
+        }}
+      />
       <div className="mx-auto w-[min(800px,calc(100%-48px))]">
         {/* ================= HEADER ================= */}
 
@@ -191,7 +221,7 @@ const NeedForFinancial2 = () => {
 
           {/* Footer */}
 
-          <div className="mt-[50px] flex items-center justify-between border-t border-line pt-6">
+          <div className="mt-12.5 flex items-center justify-between border-t border-line pt-6">
             <p className="text-[11px] text-muted">
               پاسخ‌های شما برای تحلیل وضعیت کسب‌وکار استفاده می‌شوند.
             </p>
@@ -201,6 +231,15 @@ const NeedForFinancial2 = () => {
               {questions.length.toString().padStart(2, "0")}
             </span>
           </div>
+
+          {
+            <button
+              className="p-2 w-full bg-primary/75 mt-6"
+              onClick={() => dispatch({ type: "SHOW_RESULT" })}
+            >
+              نمایش وضعیت
+            </button>
+          }
         </div>
 
         {/* Bottom Info */}
