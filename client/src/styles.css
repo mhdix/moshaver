@@ -41,7 +41,10 @@
 }
 
 @layer base {
-  p, h1,h2,h3 {
-    @apply text-gray-200
+  p, h1,h2,h3,h4 {
+    @apply text-gray-200!
+  }
+  button {
+    @apply cursor-pointer hover:scale-101 duration-300
   }
 }

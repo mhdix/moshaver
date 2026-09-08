@@ -37,6 +37,7 @@ const Navbar = ({ scrollToSection, menuOpen, setMenuOpen }: NavbarType) => {
           {[
             ["", "صفحه اصلی"],
             ["/need-help", "برانداز مالی"],
+            ["/financial-health", "سلامت کسب و کار من"],
             ["#services", "خدمات"],
             ["#method", "رویکرد من"],
             ["#problems", "مسائل کسب‌وکار"],
