@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import { getMe } from "../login/auth";
+import FinancialHealth from "../financial/FinancialHealth";
 
 type Service = {
   number: string;
@@ -61,6 +62,7 @@ function Main({ scrollToSection }: { scrollToSection: (id: string) => void }) {
       dir="rtl"
       className="min-h-screen overflow-hidden bg-bg font-vazirmatn text-text"
     >
+      <FinancialHealth />
       <main>
         {/* ================= HERO ================= */}
         <section

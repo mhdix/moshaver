@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Main from "./features/main";
-import NeedForFinancial from "./features/needForFinancial/NeedForFinancial";
 import Navbar from "./components/navbar";
 import LoginPage from "./features/login/components/LoginPage";
-import NeedForFinancial2 from "./features/needForFinancial/NeedForFinancial2";
+import NeedForFinancial from "./features/financial/NeedForFinancial";
+import NeedForFinancial2 from "./features/financial/NeedForFinancial2";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
