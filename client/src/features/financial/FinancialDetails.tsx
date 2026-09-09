@@ -1,6 +1,10 @@
 import { memo } from "react";
 
-const FinancialDetails = memo(({ calculateProfit }) => {
+type FinancialDetailsProps = {
+  calculateProfit: () => void;
+};
+
+const FinancialDetails = memo(({ calculateProfit }: FinancialDetailsProps) => {
   console.log("❌FinancialDetails Render");
 
   return (

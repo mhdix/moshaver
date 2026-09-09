@@ -8,9 +8,9 @@ import {
 import type { User } from "../types";
 import { getMe } from "../features/login/auth";
 
-
 interface AuthContextType {
   user: User | null;
+  setUser: (user: User | null) => void;
   loading: boolean;
   isAuthenticated: boolean;
 }
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const checkAuth = async () => {
       try {
         const currentUser = await getMe();
-
+console.log("currentUser", currentUser);
         setUser(currentUser);
       } catch (error) {
         console.error(error);
@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         isAuthenticated,
       }}

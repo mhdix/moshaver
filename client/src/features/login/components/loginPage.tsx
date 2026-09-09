@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // import BackgroundGlow from "../../../components/BackgroundGlow.tsx";
 
 export default function LoginPage() {
-  const [loginData, setLoginData] = useState<User>({ email: "", password: "" });
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const { isAuthenticated, loading, user } = useAuth();
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ export default function LoginPage() {
     >
       {/* Background Glow */}
       {/* <BackgroundGlow /> */}
-      
+
       <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-16 px-6 py-12 lg:grid-cols-2 lg:px-8">
         {/* ================= LEFT / BRAND ================= */}
         <section className="hidden lg:block">
@@ -138,7 +138,7 @@ export default function LoginPage() {
             </div>
 
             {/* Form */}
-            <form className="mt-10 space-y-5">
+            <form onClick={loginServicesHandler} className="mt-10 space-y-5">
               {/* Email */}
               <div>
                 <label
@@ -207,7 +207,6 @@ export default function LoginPage() {
               <button
                 type="submit"
                 className="group flex w-full items-center justify-between rounded-xl bg-primary px-5 py-4 text-sm font-medium text-[#171717] transition hover:bg-primary hover:scale-105"
-                onClick={loginServicesHandler}
               >
                 <span>ورود به پنل</span>
 

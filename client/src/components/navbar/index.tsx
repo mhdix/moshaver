@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { logout } from "../../services";
@@ -10,15 +10,18 @@ type NavbarType = {
 };
 
 const Navbar = ({ scrollToSection, menuOpen, setMenuOpen }: NavbarType) => {
-  const { isAuthenticated, loading, user } = useAuth();
-
   const [accountOpen, setAccountOpen] = useState(false);
+  const { isAuthenticated, loading, user } = useAuth();
+  useEffect(() => {
+    console.log("auth in useefect: ", isAuthenticated, loading, user);
+  }, [isAuthenticated]);
+  console.log("auth: ", isAuthenticated, loading, user);
 
   if (loading) {
     return <div className="bg-bg">loading</div>;
   }
 
-  const userName = user?.data?.data?.name || "کاربر";
+  const userName = user?.name || "کاربر";
   const userInitial = userName.trim().charAt(0) || "ک";
 
   const handleLogout = async () => {
