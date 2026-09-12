@@ -108,7 +108,7 @@ export default function LoginPage() {
 
         {/* ================= LOGIN CARD ================= */}
         <section className="flex justify-center lg:justify-end">
-          <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-2xl backdrop-blur-xl sm:p-9">
+          <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/4 p-7 shadow-2xl backdrop-blur-xl sm:p-9">
             {/* Mobile Brand */}
             <div className="mb-10 flex items-center gap-3 lg:hidden">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-bold text-[#171717]">
@@ -153,7 +153,7 @@ export default function LoginPage() {
                   type="email"
                   name="email"
                   placeholder="example@email.com"
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-primabg-primary focus:bg-white/[0.06]"
+                  className="w-full rounded-xl border border-white/10 bg-white/4 px-4 py-3.5 text-left text-sm text-white outline-none transition placeholder:text-white/20 focus:border-primabg-primary focus:bg-white/6"
                   onChange={(e) =>
                     setLoginData((prev) => ({
                       ...prev,
