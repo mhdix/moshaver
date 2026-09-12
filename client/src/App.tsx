@@ -24,8 +24,8 @@ const App = () => {
       <Routes>
         <Route element={<Main scrollToSection={scrollToSection} />} path="/" />
         <Route element={<LoginPage />} path="/login" />
-        <Route element={<NeedForFinancial />} path="/need-help" />
-        <Route element={<NeedForFinancial2 />} path="/need-help-2" />
+        <Route element={<NeedForFinancial />} path="/need-help-2" />
+        <Route element={<NeedForFinancial2 />} path="/need-help" />
         <Route element={<FinancialHealth />} path="/financial-health" />
       </Routes>
     </div>
