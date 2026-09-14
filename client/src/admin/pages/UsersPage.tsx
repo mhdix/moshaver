@@ -97,11 +97,11 @@ export default function UsersPage() {
         <div className="flex flex-wrap gap-2">
           <Link
             to={`/admin/users/${user.id}`}
-            className="rounded-lg bg-neutral-950 px-3 py-2 text-xs font-bold text-white"
+            className="rounded-lg bg-line px-3 py-2 text-xs font-bold text-text"
           >
             مشاهده
           </Link>
-          <button className="rounded-lg border border-line px-3 py-2 text-xs font-bold text-neutral-700">
+          <button className="rounded-lg text-black bg-primary border border-line px-3 py-2 text-xs font-bold text-texts">
             ویرایش
           </button>
         </div>
