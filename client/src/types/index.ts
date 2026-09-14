@@ -4,5 +4,8 @@ export interface User {
     email?: string;
     role?: string;
     password?: string;
-    phoneNumber: number
+    phoneNumber?: number;
+    createdAt?: string;
+    updatedAt?: string;
+    status?: "active" | "inactive";
 }

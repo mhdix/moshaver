@@ -12,7 +12,7 @@ export const logout = async () => {
     return logoutUser
 }
 
-export const singleUsr = async ({ id }: string) => {
+export const singleUsr = async ({ id }: {id: string}) => {
     console.log("single user id: ", id)
     const singleUser = await api.get(`/user/single/${id}`)
     return singleUser

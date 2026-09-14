@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Main from "./features/main";
 import Navbar from "./components/navbar";
-import LoginPage from "./features/login/components/loginPage";
+import LoginPage from "./features/login/components/LoginPage";
 import NeedForFinancial from "./features/financial/NeedForFinancial";
 import NeedForFinancial2 from "./features/financial/NeedForFinancial2";
 import FinancialHealth from "./features/financial/FinancialHealth";

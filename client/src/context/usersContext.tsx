@@ -1,8 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+
 import api from "../services/axios";
 import type { User } from "../types";
 
-export const UsersContext = createContext(undefined);
+interface UsersContextType {
+  users: User[];
+  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+  loading: boolean;
+}
+
+export const UsersContext = createContext<UsersContextType | undefined>(
+  undefined,
+);
 
 export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
   const [users, setUsers] = useState<User[]>([]);
@@ -12,15 +21,18 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     const fetchUsers = async () => {
       try {
         const response = await api.get("/user/list");
-        console.log("fetchUsers: ", response.data.data);
+
+        console.log("fetchUsers:", response.data.data);
+
         setUsers(response.data.data);
       } catch (error) {
-        console.error(error);
+        console.error("fetchUsers error:", error);
         setUsers([]);
       } finally {
         setLoading(false);
       }
     };
+
     fetchUsers();
   }, []);
 
@@ -40,7 +52,9 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
 export const useUsers = () => {
   const context = useContext(UsersContext);
 
-  if (!context) throw new Error("useUsers باید داخل AuthProvider استفاده شود");
+  if (!context) {
+    throw new Error("useUsers باید داخل UsersProvider استفاده شود");
+  }
 
   return context;
 };
