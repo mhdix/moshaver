@@ -20,6 +20,7 @@ import {
 } from "./admin/pages";
 import ConsultationRequestsDetailsPage from "./admin/pages/ConsultationRequestsPage";
 import Layout from "./features/Layout";
+import CreateUserForm from "./features/user/CreateUserForm";
 const App = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +35,16 @@ const App = () => {
     <div className="font-vazirmatn">
       <Routes>
         {/* home page */}
-        <Route path="/" element={<Layout menuOpen={menuOpen} setMenuOpen={setMenuOpen} scrollToSection={scrollToSection} />}>
+        <Route
+          path="/"
+          element={
+            <Layout
+              menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
+              scrollToSection={scrollToSection}
+            />
+          }
+        >
           <Route
             element={<Main scrollToSection={scrollToSection} />}
             path="/"
@@ -42,6 +52,7 @@ const App = () => {
           <Route element={<LoginPage />} path="/login" />
           <Route element={<NeedForFinancial />} path="/need-help-2" />
           <Route element={<NeedForFinancial2 />} path="/need-help" />
+          <Route element={<CreateUserForm />} path="/submit" />
           <Route element={<FinancialHealth />} path="/financial-health" />
         </Route>
 
