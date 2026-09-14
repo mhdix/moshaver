@@ -4,6 +4,7 @@ import ticketRoutes from "./modules/tickets/ticket.routes.ts";
 import blogRoutes from "./modules/blogs/blog.routes.ts";
 import cookieParser from "cookie-parser";
 import cors from 'cors';
+import profitRoutes from "./modules/profit/profit.routes.ts";
 
 const app: Express = express()
 
@@ -24,6 +25,7 @@ app.get('/api/v1/health', (req, res) => {
 app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/ticket', ticketRoutes)
 app.use('/api/v1/blog', blogRoutes)
+app.use('/api/v1/profit', profitRoutes)
 
 
 

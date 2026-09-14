@@ -28,9 +28,9 @@ const userSchema = new mongoose.Schema(
             enum: ["admin", "user"],
             default: "user"
         },
-        financialAnalyses: {
-            type: [String],
-            default: []
+        profit: {
+            type: mongoose.Schema.ObjectId,
+            ref: "Profit"
         }
     },
     {
