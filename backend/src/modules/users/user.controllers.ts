@@ -54,7 +54,7 @@ export const createUser = async (req: Request, res: Response) => {
             })
         }
 
-        const { name, email, password } = req.body
+        const { name, email, phoneNumber, password } = req.body
 
         const safeEmail = await User.find({ email: email })
         if (safeEmail.length > 0) {
@@ -66,18 +66,20 @@ export const createUser = async (req: Request, res: Response) => {
 
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = User.create({ name, email, password: hashedPassword })
+        const newUser = await User.create({ name, phoneNumber, email, password: hashedPassword })
+        console.log('enwUser: ', newUser)
 
 
         res.status(201).json({
-            message: "create user successfully",
+            message: "کاربر با موفقیت اضافه شد",
             data: newUser
         })
 
     } catch (error) {
         console.log('get all users error: ', error)
         res.status(500).json({
-            message: 'مشکل سرور'
+            message: 'مشکل سرور',
+            error: error?.errors
         })
     }
 

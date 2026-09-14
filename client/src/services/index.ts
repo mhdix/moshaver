@@ -11,3 +11,9 @@ export const logout = async () => {
     toast.success((await logoutUser).data.message)
     return logoutUser
 }
+
+export const singleUsr = async ({ id }: string) => {
+    console.log("single user id: ", id)
+    const singleUser = await api.get(`/user/single/${id}`)
+    return singleUser
+}

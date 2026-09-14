@@ -1,13 +1,32 @@
 import { Link, useParams } from "react-router-dom";
 import { PageHeader, SectionCard, StatusBadge } from "../components";
+import { useEffect, useState } from "react";
+import api from "../../services/axios";
+import type { User } from "../../types";
 
 export default function UserDetailsPage() {
+  const [userDetails, setUserDetails] = useState<User>({});
   const { id } = useParams();
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await api.get(`/user/single/${id}`);
+        console.log("fetchUser: ", response);
+        setUserDetails(response.data.data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
+  console.log("singleUser detail : ", userDetails);
 
   return (
     <>
       <PageHeader
-        title={`جزئیات کاربر #${id ?? "-"}`}
+        title={`جزئیات کاربر`}
         description="نمای کامل ارتباط کاربر با سامانه مشاوره مالی"
         action={
           <Link
@@ -24,21 +43,19 @@ export default function UserDetailsPage() {
           <dl className="space-y-4 text-sm">
             <div className="flex justify-between gap-4">
               <dt className="text-neutral-500">نام</dt>
-              <dd className="font-bold">علی رضایی</dd>
+              <dd className="font-bold">{userDetails?.name}</dd>
             </div>
             <div className="flex justify-between gap-4">
               <dt className="text-neutral-500">ایمیل</dt>
-              <dd>ali@example.com</dd>
+              <dd className="font-bold">{userDetails?.email}</dd>
             </div>
             <div className="flex justify-between gap-4">
               <dt className="text-neutral-500">شماره تماس</dt>
-              <dd>09121234567</dd>
+              <dd className="font-bold">{userDetails?.phoneNumber}</dd>
             </div>
             <div className="flex justify-between gap-4">
-              <dt className="text-neutral-500">وضعیت</dt>
-              <dd>
-                <StatusBadge status="فعال" />
-              </dd>
+              <dt className="text-neutral-500">هویت</dt>
+              <dd className="font-bold">{userDetails?.role}</dd>
             </div>
           </dl>
         </SectionCard>
@@ -50,7 +67,7 @@ export default function UserDetailsPage() {
               ["هزینه ماهانه", "۲۴۰ میلیون"],
               ["سود ماهانه", "۸۰ میلیون"],
             ].map(([label, value]) => (
-              <div key={label} className="rounded-xl bg-neutral-50 p-4">
+              <div key={label} className="rounded-xl bg-bg-soft p-4">
                 <div className="text-xs text-neutral-500">{label}</div>
                 <div className="mt-2 font-black text-text">{value}</div>
               </div>

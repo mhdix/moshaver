@@ -7,9 +7,10 @@ import {
   StatusBadge,
   type TableColumn,
 } from "../components";
+import { useUsers } from "../../context/usersContext";
 
 interface UserRow {
-  id: number;
+  _id: number;
   name: string;
   email: string;
   phone: string;
@@ -18,46 +19,48 @@ interface UserRow {
   createdAt: string;
 }
 
-const users: UserRow[] = [
-  {
-    id: 1,
-    name: "علی رضایی",
-    email: "ali@example.com",
-    phone: "09121234567",
-    role: "کاربر",
-    status: "فعال",
-    createdAt: "۱۴۰۵/۰۶/۱۸",
-  },
-  {
-    id: 2,
-    name: "مینا محمدی",
-    email: "mina@example.com",
-    phone: "09129876543",
-    role: "کاربر",
-    status: "فعال",
-    createdAt: "۱۴۰۵/۰۶/۱۵",
-  },
-  {
-    id: 3,
-    name: "رضا احمدی",
-    email: "reza@example.com",
-    phone: "09351234567",
-    role: "کاربر",
-    status: "غیرفعال",
-    createdAt: "۱۴۰۵/۰۶/۱۰",
-  },
-  {
-    id: 4,
-    name: "سارا کریمی",
-    email: "sara@example.com",
-    phone: "09151112233",
-    role: "مدیر",
-    status: "فعال",
-    createdAt: "۱۴۰۵/۰۶/۰۷",
-  },
-];
+// const users: UserRow[] = [
+//   {
+//     id: 1,
+//     name: "علی رضایی",
+//     email: "ali@example.com",
+//     phone: "09121234567",
+//     role: "کاربر",
+//     status: "فعال",
+//     createdAt: "۱۴۰۵/۰۶/۱۸",
+//   },
+//   {
+//     id: 2,
+//     name: "مینا محمدی",
+//     email: "mina@example.com",
+//     phone: "09129876543",
+//     role: "کاربر",
+//     status: "فعال",
+//     createdAt: "۱۴۰۵/۰۶/۱۵",
+//   },
+//   {
+//     id: 3,
+//     name: "رضا احمدی",
+//     email: "reza@example.com",
+//     phone: "09351234567",
+//     role: "کاربر",
+//     status: "غیرفعال",
+//     createdAt: "۱۴۰۵/۰۶/۱۰",
+//   },
+//   {
+//     id: 4,
+//     name: "سارا کریمی",
+//     email: "sara@example.com",
+//     phone: "09151112233",
+//     role: "مدیر",
+//     status: "فعال",
+//     createdAt: "۱۴۰۵/۰۶/۰۷",
+//   },
+// ];
 
 export default function UsersPage() {
+  const { users, loading } = useUsers();
+  console.log("userssss", users);
   const [searchParams] = useSearchParams();
   const query = (searchParams.get("q") ?? "").trim().toLowerCase();
   // REACT LEARNING OPPORTUNITY:
@@ -96,7 +99,7 @@ export default function UsersPage() {
       render: (user) => (
         <div className="flex flex-wrap gap-2">
           <Link
-            to={`/admin/users/${user.id}`}
+            to={`/admin/users/${user?._id}`}
             className="rounded-lg bg-line px-3 py-2 text-xs font-bold text-text"
           >
             مشاهده
@@ -122,7 +125,7 @@ export default function UsersPage() {
             defaultValue={query}
             placeholder="نام، ایمیل یا شماره تماس..."
           />
-          <button className="h-11 rounded-xl bg-neutral-950 px-5 text-sm font-bold text-white">
+          <button className="h-11 rounded-xl bg-bg-soft border border-line px-5 text-sm font-bold text-white">
             جستجو
           </button>
           {query ? (
@@ -139,7 +142,7 @@ export default function UsersPage() {
       <DataTable
         data={filteredUsers}
         columns={columns}
-        getRowKey={(user) => user.id}
+        getRowKey={(user) => user._id}
       />
       <Pagination />
     </>
