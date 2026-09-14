@@ -5,7 +5,7 @@ import api from "../../services/axios";
 import type { User } from "../../types";
 
 export default function UserDetailsPage() {
-  const [userDetails, setUserDetails] = useState<User>({});
+  const [userDetails, setUserDetails] = useState<User | null>(null);
   const { id } = useParams();
 
   useEffect(() => {
