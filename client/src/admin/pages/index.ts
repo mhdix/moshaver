@@ -1,0 +1,13 @@
+export { default as DashboardPage } from './DashboardPage';
+export { default as UsersPage } from './UsersPage';
+export { default as UserDetailsPage } from './UserDetailsPage';
+export { default as FinancialProfilesPage } from './FinancialProfilesPage';
+export { default as FinancialProfileDetailsPage } from './FinancialProfileDetailsPage';
+export { default as AssessmentsPage } from './AssessmentsPage';
+export { default as AssessmentDetailsPage } from './AssessmentDetailsPage';
+export { default as ConsultationRequestsPage } from './ConsultationRequestsPage';
+export { default as ConsultationRequestDetailsPage } from './ConsultationRequestDetailsPage';
+export { default as TransactionsPage } from './TransactionsPage';
+export { default as ReportsPage } from './ReportsPage';
+export { default as SettingsPage } from './SettingsPage';
+export { default as NotFoundAdminPage } from './NotFoundAdminPage';
