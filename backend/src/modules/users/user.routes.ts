@@ -8,7 +8,7 @@ const userRoutes = Router()
 
 
 userRoutes.get('/list', getAllUsers)
-userRoutes.get('/:id', getSingleUser)
+userRoutes.get('/single/:id', getSingleUser)
 userRoutes.post(
     "/create",
     validate(createUserSchema),

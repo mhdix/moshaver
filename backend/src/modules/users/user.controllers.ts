@@ -21,6 +21,26 @@ export const getAllUsers = async (req: Request, res: Response) => {
     }
 }
 
+export const getSingleUser = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params
+
+        const singleUser = await User.findById(id)
+
+
+        res.status(200).json({
+            message: "get single user",
+            data: singleUser
+        })
+
+    } catch (error) {
+        console.log('get single user error: ', error)
+        res.status(500).json({
+            message: "مشکل سرور"
+        })
+    }
+}
+
 export const createUser = async (req: Request, res: Response) => {
 
     try {
